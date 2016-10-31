@@ -1,6 +1,14 @@
 <h3>Films vues récemment</h3>
 
 <input type="text" #movieTitle placeholder="Ajouter un titre de film"><button type="button" name="button" (click)="addMovie(movieTitle.value)">Ajouter</button>
+
+<div class="" *ngIf="nbOfMovies === 1">
+  1 film vu récemment.
+</div>
+<div class="" *ngIf="nbOfMovies > 1">
+  {{nbOfMovies}} films vus récemment.
+</div>
+
 <ul>
   <li *ngFor="let movie of dataMovies">
     {{movie}}

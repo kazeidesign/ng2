@@ -8,5 +8,5 @@ export class MovieService {
     this.movies = ['Rio', 'Rio2', 'Deadpool'];
     return this.movies;
   }
-  
+
 }

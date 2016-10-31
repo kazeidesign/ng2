@@ -11,6 +11,7 @@ import {OnInit} from '@angular/core';
 export class MoviesComponent implements OnInit {
   movieService: MovieService;
   dataMovies: string[];
+  nbOfMovies: number;
   // dataMovies = ['Rio', 'Rio2', 'Deadpool'];
   constructor (movieService: MovieService) {
     this.movieService = movieService;
@@ -19,10 +20,12 @@ export class MoviesComponent implements OnInit {
 
   addMovie(movieTitle) {
     this.dataMovies.push(movieTitle);
+    this.nbOfMovies = this.dataMovies.length;
   };
 
   ngOnInit() {
     this.dataMovies = this.movieService.getAllMovies();
+    this.nbOfMovies = this.dataMovies.length;
   }
 
 }
