@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {MovieService} from './movies.service';
+import {OnInit} from '@angular/core';
 
 @Component({
   selector: 'movies',
@@ -7,7 +8,7 @@ import {MovieService} from './movies.service';
   templateUrl: './movies.component.html',
   providers: [MovieService]
 })
-export class MoviesComponent {
+export class MoviesComponent implements OnInit {
   movieService: MovieService;
   dataMovies: string[];
   // dataMovies = ['Rio', 'Rio2', 'Deadpool'];
@@ -19,4 +20,9 @@ export class MoviesComponent {
   addMovie(movieTitle) {
     this.dataMovies.push(movieTitle);
   };
+
+  ngOnInit() {
+    this.dataMovies = this.movieService.getAllMovies();
+  }
+
 }
